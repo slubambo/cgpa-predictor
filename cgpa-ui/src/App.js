@@ -28,6 +28,9 @@ function App() {
     alevel_std_dev_grade_weight: "",
     alevel_dominant_grade_weight: "",
     alevel_count_weak_grades: "",
+    campus_id_code: '',
+    program_id_code: '',
+    curriculum_id_code: ''
   });
 
   const handleFormChange = (field, value) => {
