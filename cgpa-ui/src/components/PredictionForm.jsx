@@ -2,6 +2,7 @@
 import React from 'react';
 import { Box, Typography, Paper } from '@mui/material';
 import DemographicsForm from './DemographicsForm';
+import OLevelForm from './OLevelForm'
 
 const PredictionForm = () => {
   return (
@@ -15,7 +16,7 @@ const PredictionForm = () => {
         <DemographicsForm />
 
         {/* Steps 2–4: Other forms will be added below */}
-        {/* <OLevelForm /> */}
+        <OLevelForm />
         {/* <ALevelForm /> */}
         {/* <InstitutionalForm /> */}
       </Paper>
