@@ -70,22 +70,40 @@ function App() {
       std_dev_olevel_grade: parseFloat(formData.std_dev_olevel_grade),
       uace_year_code: Number(formData.uace_year_code),
       general_paper: Number(formData.general_paper),
-      alevel_average_grade_weight: parseFloat(formData.alevel_average_grade_weight),
+      alevel_average_grade_weight: parseFloat(
+        formData.alevel_average_grade_weight
+      ),
       alevel_total_grade_weight: parseFloat(formData.alevel_total_grade_weight),
-      alevel_std_dev_grade_weight: parseFloat(formData.alevel_std_dev_grade_weight),
-      alevel_dominant_grade_weight: parseFloat(formData.alevel_dominant_grade_weight),
+      alevel_std_dev_grade_weight: parseFloat(
+        formData.alevel_std_dev_grade_weight
+      ),
+      alevel_dominant_grade_weight: parseFloat(
+        formData.alevel_dominant_grade_weight
+      ),
       alevel_count_weak_grades: Number(formData.alevel_count_weak_grades),
       year_of_entry_code: Number(formData.year_of_entry_code),
       campus_id_code: Number(formData.campus_id_code),
       program_id_code: Number(formData.program_id_code),
       curriculum_id_code: Number(formData.curriculum_id_code),
-      high_school_performance_variance: parseFloat(formData.high_school_performance_variance),
-      high_school_performance_stability_index: parseFloat(formData.high_school_performance_stability_index),
+      high_school_performance_variance: parseFloat(
+        formData.high_school_performance_variance
+      ),
+      high_school_performance_stability_index: parseFloat(
+        formData.high_school_performance_stability_index
+      ),
     };
 
-    // 🛑 Prevent submission if any value is invalid
-    if (Object.values(payload).some(val => val === "" || val === null || Number.isNaN(val))) {
-      alert("❗ Please fill in all required fields before submitting.");
+    // ✅ Collect all missing or invalid fields
+    const missingFields = Object.entries(payload)
+      .filter(([key, val]) => val === "" || val === null || Number.isNaN(val))
+      .map(([key]) => key);
+
+    if (missingFields.length > 0) {
+      alert(
+        `❗ Please fill in the following required fields:\n\n- ${missingFields.join(
+          "\n- "
+        )}`
+      );
       return;
     }
 
@@ -95,7 +113,10 @@ function App() {
     setResult(null);
 
     try {
-      const response = await axios.post("http://localhost:8000/predict", payload);
+      const response = await axios.post(
+        "http://localhost:8000/predict",
+        payload
+      );
       setResult(response.data);
     } catch (err) {
       console.error("❌ API Error:", err);
@@ -131,7 +152,11 @@ function App() {
             onClick={handleSubmit}
             disabled={loading}
           >
-            {loading ? <CircularProgress size={24} color="inherit" /> : "Predict CGPA"}
+            {loading ? (
+              <CircularProgress size={24} color="inherit" />
+            ) : (
+              "Predict CGPA"
+            )}
           </Button>
         </div>
 
