@@ -1,11 +1,21 @@
-# cgpa-backend/main.py
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from schemas.request_schema import StudentInput
 from utils.feature_engineering import transform_input, classify_band
 from models.model_loader import load_model
 import uvicorn
 
 app = FastAPI()
+
+# ✅ Allow frontend to access API
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # Update if your frontend URL is different
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 model = load_model()
 
 @app.get("/")
