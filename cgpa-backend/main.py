@@ -24,6 +24,9 @@ def root():
 
 @app.post("/predict")
 def predict(input_data: StudentInput):
+    
+    print("📦 Incoming payload:", input_data)
+
     features = transform_input(input_data)
     prediction = model.predict([features])[0]
     return {
