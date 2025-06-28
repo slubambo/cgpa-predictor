@@ -1,0 +1,10 @@
+# Node modules
+cgpa-ui/node_modules/
+# Python virtual env
+cgpa-backend/venv/
+# Byte-compiled Python files
+__pycache__/
+*.pyc
+# VSCode and system files
+.vscode/
+.DS_Store
