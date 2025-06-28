@@ -106,6 +106,32 @@ const ALevelForm = ({ data, onChange }) => {
             variant="outlined"
           />
         </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            label="High School Performance Variance"
+            type="number"
+            value={data.high_school_performance_variance}
+            onChange={handleChange("high_school_performance_variance")}
+            InputLabelProps={{ style: { color: "#ffffff" } }}
+            inputProps={{ style: { color: "#ffffff" } }}
+            variant="outlined"
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            label="Performance Stability Index"
+            type="number"
+            value={data.high_school_performance_stability_index}
+            onChange={handleChange("high_school_performance_stability_index")}
+            InputLabelProps={{ style: { color: "#ffffff" } }}
+            inputProps={{ style: { color: "#ffffff" } }}
+            variant="outlined"
+          />
+        </Grid>
       </Grid>
     </div>
   );
