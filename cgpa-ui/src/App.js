@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Container, Typography, Paper } from "@mui/material";
 import DemographicsForm from "./components/DemographicsForm";
 import OLevelForm from "./components/OLevelForm";
+import ALevelForm from "./components/ALevelForm";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -41,6 +42,7 @@ function App() {
         </Typography>
         <DemographicsForm data={formData} onChange={handleFormChange} />
         <OLevelForm data={formData} onChange={handleFormChange} />
+        <ALevelForm data={formData} onChange={handleFormChange} />
       </Paper>
     </Container>
   );
