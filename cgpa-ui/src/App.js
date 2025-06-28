@@ -4,6 +4,7 @@ import { Container, Typography, Paper } from "@mui/material";
 import DemographicsForm from "./components/DemographicsForm";
 import OLevelForm from "./components/OLevelForm";
 import ALevelForm from "./components/ALevelForm";
+import InstitutionalForm from './components/InstitutionalForm'
 
 function App() {
   const [formData, setFormData] = useState({
@@ -53,6 +54,7 @@ function App() {
         <DemographicsForm data={formData} onChange={handleFormChange} />
         <OLevelForm data={formData} onChange={handleFormChange} />
         <ALevelForm data={formData} onChange={handleFormChange} />
+        <InstitutionalForm data={formData} onChange={handleFormChange} />
       </Paper>
     </Container>
   );
