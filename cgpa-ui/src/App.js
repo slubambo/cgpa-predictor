@@ -21,6 +21,13 @@ function App() {
     highest_olevel_grade: "",
     lowest_olevel_grade: "",
     std_dev_olevel_grade: "",
+    uace_year_code: "",
+    general_paper: "",
+    alevel_average_grade_weight: "",
+    alevel_total_grade_weight: "",
+    alevel_std_dev_grade_weight: "",
+    alevel_dominant_grade_weight: "",
+    alevel_count_weak_grades: "",
   });
 
   const handleFormChange = (field, value) => {
