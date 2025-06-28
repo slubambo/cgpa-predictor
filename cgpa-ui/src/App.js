@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useState } from 'react';
+import { Container, Typography, Paper } from '@mui/material';
+import DemographicsForm from './components/DemographicsForm';
 
 function App() {
+  const [formData, setFormData] = useState({
+    age_at_entry: '',
+    gender: '',
+    level: '',
+    year_of_entry_code: ''
+  });
+
+  const handleFormChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="md" style={{ marginTop: '2rem' }}>
+      <Paper elevation={3} style={{ padding: '2rem', backgroundColor: '#1e1e1e', color: '#ffffff' }}>
+        <Typography variant="h4" gutterBottom align="center">
+          🎓 CGPA Prediction Form
+        </Typography>
+        <DemographicsForm data={formData} onChange={handleFormChange} />
+      </Paper>
+    </Container>
   );
 }
 
